@@ -1,12 +1,12 @@
 body {
   background-color: black;
 }
-h1 {
+h1,
+h2 {
   color: lightgray;
 }
 
 .board {
-  /* background-color: red; */
   display: grid;
   grid-template-columns: auto auto auto;
   height: 200px;
