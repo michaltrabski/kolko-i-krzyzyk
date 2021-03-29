@@ -1,6 +1,5 @@
-const board = document.querySelector(".board");
 const fields = document.querySelectorAll(".board__field");
-const player = document.querySelector("#current-player");
+const currentPlayerInfo = document.querySelector("#current-player-info");
 const winnerPlaceholder = document.querySelector("#winner");
 
 let move = 0;
@@ -9,8 +8,8 @@ const x = '<i class="fas fa-times"></i>';
 let currentPlayer = x;
 const history = {};
 
-// innitialy define cyrrcurrentPlayeren
-player.innerHTML = currentPlayer;
+// innitialy define currentPlayer
+currentPlayerInfo.innerHTML = currentPlayer;
 
 fields.forEach((field) => {
   // field.innerHTML = field.getAttribute("id");
@@ -37,7 +36,7 @@ function game() {
   // continue game
   move++;
   currentPlayer = move % 2 === 0 ? x : o;
-  player.innerHTML = currentPlayer;
+  currentPlayerInfo.innerHTML = currentPlayer;
 }
 
 const isWinner = (history, currentPlayer) => {
@@ -56,7 +55,7 @@ const isWinner = (history, currentPlayer) => {
   if (a3 != null && a2 === b2 && a3 === c1) winner = currentPlayer;
 
   if (winner) {
-    winnerPlaceholder.innerHTML = `And The Winner Is ${winner}`;
+    winnerPlaceholder.innerHTML = `And The Winner Is: ${winner}`;
     endGame();
   }
 
